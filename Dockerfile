@@ -5,21 +5,13 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 # Install dependencies
-RUN yarn install
+RUN npm install --legacy-peer-deps
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the React app
-RUN npm run build
-
-# Use an official Nginx runtime as a base image for the production stage
-FROM nginx:latest
-# Copy the Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-# Copy the build artifacts from the build stage
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
-# Expose port 80
-EXPOSE 80
+#RUN  npm run build
+EXPOSE 3000
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "dev"]

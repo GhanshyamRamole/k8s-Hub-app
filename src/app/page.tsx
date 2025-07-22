@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { kubernetesDistributions, KubernetesDistribution } from "@/data/kubernetes";
+import React from "react";
+import { kubernetesDistributions } from "@/data/kubernetes";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -9,8 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 export default function KubernetesHubPage() {
-  const [selectedDistribution, setSelectedDistribution] = useState<KubernetesDistribution | null>(null);
-
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
   };
@@ -45,7 +43,6 @@ export default function KubernetesHubPage() {
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
-                      onClick={() => setSelectedDistribution(distribution)}
                       className="w-full"
                       size="lg"
                     >
