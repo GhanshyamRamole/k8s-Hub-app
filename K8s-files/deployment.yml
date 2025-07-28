@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-app
+  labels:
+    app: k8s-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-app
+  template:
+    metadata:
+      labels:
+        app: k8s-app
+    spec:
+      containers:
+        - name: k8s-container
+        image: 
+        ports:
+        - containerPort: 3000
