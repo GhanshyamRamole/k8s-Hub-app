@@ -2,23 +2,22 @@ pipeline {
     agent any
     
     parameters {
-        string(name: 'ECR_REPO_NAME', defaultValue: 'amazon-prime', description: 'Enter repository name')
+        string(name: 'ECR_REPO_NAME', defaultValue: 'k8s-hub', description: 'Enter repository name')
         string(name: 'AWS_ACCOUNT_ID', defaultValue: '123456789012', description: 'Enter AWS Account ID') // Added missing quote
     }
     
     tools {
-        jdk 'JDK'
         nodejs 'NodeJS'
     }
     
     environment {
-        SCANNER_HOME = tool 'Scanner'
+        SCANNER_HOME = tool 'sonar-scanner'
     }
     
     stages {
         stage('1. Git Checkout') {
             steps {
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/GhanshyamRamole/k8s-Hub-app.git'
             }
         }
         
@@ -55,7 +54,9 @@ pipeline {
         
         stage('6. Build Docker Image') {
             steps {
+                 dir('./Application') { 
                 sh "docker build -t ${params.ECR_REPO_NAME} ."
+                 }
             }
         }
         
@@ -103,10 +104,9 @@ pipeline {
                 sh """
                 docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
                 docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:latest
-		docker images
+                docker images
                 """
             }
         }
     }
 }
-
