@@ -18,7 +18,7 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "20GB of free disk space",
       "Internet connection"
     ],
-    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/minikube/minikube.sh | chmod +x minikube.sh | ./minikube.sh "
+    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/minikube/minikube.sh \n chmod +x minikube.sh \n ./minikube.sh "
   },
   {
     id: "eks",
@@ -31,7 +31,7 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "Network Requirement: A valid VPC with at least 2 subnets in different Availability Zones (EKS can auto-create this if not provided)",
       "System Requirements Linux/macOS terminal or WSL on Windows sudo/root privileges to install CLI tools Minimum RAM: 4 GB, CPU: 2 cores (on your local machine)"
     ],
-    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/eks/eks-cluster.sh | chmod +x eks-cluster.sh | ./eks-cluster.sh "
+    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/eks/eks-cluster.sh \n chmod +x eks-cluster.sh \n ./eks-cluster.sh "
   },
   {
     id: "microk8s",
@@ -44,7 +44,7 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "20GB of disk space",
       "Internet connection"
     ],
-    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/microk8s/microk8s.sh | chmod +x microk8s.sh | ./microk8s.sh "
+    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/microk8s/microk8s.sh \n chmod +x microk8s.sh \n ./microk8s.sh "
   },
   {
     id: "kind",
@@ -57,7 +57,7 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "Internet connection",
       "Linux: ubuntu"
     ],
-    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/kind/kind-cluster.sh | chmod +x kind-cluster.sh | ./kind-cluster.sh"
+    script: "wget https://github.com/GhanshyamRamole/k8s-Hub/blob/main/kind/kind-cluster.sh \n chmod +x kind-cluster.sh \n ./kind-cluster.sh"
   },
   {
     id: "k0s",
