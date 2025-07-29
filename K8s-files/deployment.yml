@@ -15,7 +15,7 @@ spec:
         app: k8s-app
     spec:
       containers:
-        - name: k8s-container
-        image: 
+      - name: k8s-container
+        image: ghanshyamramole/test:latest 
         ports:
         - containerPort: 3000
