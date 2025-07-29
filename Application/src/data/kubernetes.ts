@@ -10,7 +10,7 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
   {
     id: "minikube",
     name: "Minikube",
-    description: "Run a single-node Kubernetes cluster locally for development and testing.",
+    description: "Minikube is a lightweight Kubernetes implementation that creates a single-node Kubernetes cluster. It is primarily used for: \n Learning and experimenting.",
     prerequisites: [
       "Docker or VirtualBox installed",
       "At least 2GB of RAM available",
@@ -18,20 +18,20 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "20GB of free disk space",
       "Internet connection"
     ],
-    script: "curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube-linux-amd64 && sudo mv minikube-linux-amd64 /usr/local/bin/minikube"
+    script: "https://github.com/GhanshyamRamole/k8s-Hub/blob/main/minikube/minikube.sh | chmod +x minikube.sh | ./minikube.sh "
   },
   {
-    id: "k3s",
-    name: "K3s",
-    description: "Lightweight Kubernetes distribution perfect for production workloads at the edge.",
+    id: "eks",
+    name: "eks",
+    description: "An Amazon EKS cluster is a managed Kubernetes environment on AWS that simplifies the process of deploying, managing, and scaling containerized applications using Kubernetes..",
     prerequisites: [
-      "Linux operating system",
-      "512MB of RAM minimum",
-      "75MB of disk space",
-      "Network connectivity",
-      "Root or sudo access"
+      "AWS Account & IAM Setup",
+      "AWS CLI must be configured using: aws configure",
+      "Required Tools Installed: AWS CLI",
+      "Network Requirement: A valid VPC with at least 2 subnets in different Availability Zones (EKS can auto-create this if not provided)",
+      "System Requirements Linux/macOS terminal or WSL on Windows sudo/root privileges to install CLI tools Minimum RAM: 4 GB, CPU: 2 cores (on your local machine)"
     ],
-    script: "curl -sfL https://get.k3s.io | sh -"
+    script: "https://github.com/GhanshyamRamole/k8s-Hub/blob/main/eks/eks-cluster.sh | chmod +x eks-cluster.sh | ./eks-cluster.sh "
   },
   {
     id: "microk8s",
@@ -55,9 +55,9 @@ export const kubernetesDistributions: KubernetesDistribution[] = [
       "Go 1.16+ (for building from source)",
       "At least 8GB of RAM",
       "Internet connection",
-      "Linux, macOS, or Windows"
+      "Linux: ubuntu"
     ],
-    script: "curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind"
+    script: "https://github.com/GhanshyamRamole/k8s-Hub/blob/main/kind/kind-cluster.sh | chmod +x kind-cluster.sh | ./kind-cluster.sh"
   },
   {
     id: "k0s",
