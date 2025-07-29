@@ -4,19 +4,19 @@ pipeline {
     parameters {
         string(name: 'AWS_REGION', defaultValue: 'us-east-1', description: 'Enter your AWS region')
         string(name: 'AWS_ACCOUNT_ID', defaultValue: '123456789000', description: 'Enter your AWS account ID')
-        string(name: 'ECR_REPO_NAME', defaultValue: 'amazon-prime', description: 'Enter repository name')
+        string(name: 'ECR_REPO_NAME', defaultValue: 'dev', description: 'Enter repository name')
         string(name: 'VERSION', defaultValue: 'latest', description: 'Enter version number')
-        string(name: 'CLUSTER_NAME', defaultValue: 'devops-project-cluster', description: 'Enter your EKS cluster name')
+        string(name: 'CLUSTER_NAME', defaultValue: 'devops-cluster', description: 'Enter your EKS cluster name')
     }
 
     stages {
         stage("Clone GitHub Repository") {
             steps {
                 // Clone the repository containing deployment and service files
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/GhanshyamRamole/k8s-Hub-app.git'
             }
         }
-		
+
         stage("Login to EKS") {
             steps {
                 script {
@@ -30,28 +30,29 @@ pipeline {
             }
         }
 
-		
+
       stage ("Select Image Version") {
             steps {
                 script {
                         def ECR_IMAGE_NAME = "${params.AWS_ACCOUNT_ID}.dkr.ecr.${params.AWS_REGION}.amazonaws.com/${params.ECR_REPO_NAME}:${params.VERSION}"
-                        sh "sed -i 's|image: .*|image: ${ECR_IMAGE_NAME}|' k8s_files/deployment.yaml"
-                }	
+                        sh "sed -i 's|image: .*|image: ${ECR_IMAGE_NAME}|' K8s-files/deployment.yml"
+                }
             }
-        }		
+        }
 
-        // ----------------------------------------------------
-	// USE THIS STAGE TO DEPLOY IMAGE AS PER THE VERSION NO
-        // ----------------------------------------------------
+        //        /----------------------------------------------------\
+        //       | USE THIS STAGE TO DEPLOY IMAGE AS PER THE VERSION NO |
+        //        \----------------------------------------------------/
         stage("Deploy to EKS") {
             steps {
                 script {
+                    dir('./K8s-files') { 
                         // Apply the deployment and service files
-                        sh "kubectl apply -f k8s_files/deployment.yaml"
-                        sh "kubectl apply -f k8s_files/service.yaml"
+                        sh "kubectl apply -f deployment.yml"
+                        sh "kubectl apply -f service.yml"
+                    }
                 }
             }
         }
     }
 }
-
