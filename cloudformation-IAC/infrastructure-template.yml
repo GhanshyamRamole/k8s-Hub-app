@@ -27,7 +27,7 @@ Parameters:
     Description: Subnet ID to launch the instance into
 
   AmiId:
-    TType: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: /aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id
     Description: Latest Ubuntu 22.04 LTS AMI from SSM Parameter Store
 
