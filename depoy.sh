@@ -4,7 +4,7 @@ echo "Cloning git repo ..."
   git clone https://github.com/GhanshyamRamole/k8s-Hub-app.git
 
 echo "Install prerequisites and creating eks cluster"
-  wget https://raw.githubusercontent.com/GhanshyamRamole/k8s-Hub/main/eks/eks-cluster.sh
+  https://raw.githubusercontent.com/GhanshyamRamole/k8s-Hub-app/main/eks-setup.sh
   chmod +x eks-cluster.sh
   ./eks-cluster.sh
 
