@@ -5,8 +5,8 @@ echo "Cloning git repo ..."
 
 echo "Install prerequisites and creating eks cluster"
   https://raw.githubusercontent.com/GhanshyamRamole/k8s-Hub-app/main/eks-setup.sh
-  chmod +x eks-cluster.sh
-  ./eks-cluster.sh
+  chmod +x eks-setup.sh
+  ./eks-setup.sh
 
 echo "Deploying website on eks"
   kubectl apply -f K8s-files
