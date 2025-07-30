@@ -6,7 +6,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'CLUSTER_NAME', defaultValue: 'amazon-prime-cluster', description: 'Enter your EKS cluster name')
+        string(name: 'CLUSTER_NAME', defaultValue: 'dev', description: 'Enter your EKS cluster name')
     }
 
     stages {
