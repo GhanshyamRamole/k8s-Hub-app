@@ -6,9 +6,9 @@ Description: >
 Parameters:
   InstanceType:
     Type: String
-    Default: t3.micro
+    Default: t2.medium
     AllowedValues:
-      - t2.micro
+      - t2.medium
       - t2.small
       - t3.micro
       - t3.small
@@ -42,9 +42,17 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: EC2-SG
+          Value: k8s-hub-sg
 
   EC2Instance:
     Type: AWS::EC2::Instance
@@ -62,6 +70,13 @@ Resources:
           Value: DevOps
         - Key: Environment
           Value: Dev
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          # Your custom app install goes here
+          chmod +x /home/ec2-user/myapp.sh
+          bash /home/ec2-user/myapp.sh      
 
 Outputs:
   InstanceId:
