@@ -75,8 +75,9 @@ Resources:
           #!/bin/bash
           yum update -y
           # Your custom app install goes here
-          chmod +x /home/ec2-user/myapp.sh
-          bash /home/ec2-user/myapp.sh      
+          wget https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/depoy.sh
+          chmod +x depoy.sh
+          bash depoy.sh         
 
 Outputs:
   InstanceId:
