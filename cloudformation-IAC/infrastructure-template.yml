@@ -73,11 +73,12 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          yum update -y
+          sudo apt update -y
+          sudo apt install wget -y
           # Your custom app install goes here
           wget https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/depoy.sh
           chmod +x depoy.sh
-          bash depoy.sh         
+          ./depoy.sh       
 
 Outputs:
   InstanceId:
