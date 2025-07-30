@@ -76,7 +76,7 @@ Resources:
           sudo apt update -y
           sudo apt install wget -y
           # Your custom app install goes here
-          wget https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/depoy.sh
+          wget https://raw.githubusercontent.com/GhanshyamRamole/k8s-Hub-app/main/depoy.sh
           chmod +x depoy.sh
           ./depoy.sh       
 
