@@ -78,6 +78,8 @@ Resources:
           # Your custom app install goes here
           wget https://raw.githubusercontent.com/GhanshyamRamole/k8s-Hub-app/main/depoy.sh
           chmod +x depoy.sh
+          sed -i 's/^AWS_ACCESS_KEY_ID=.*/AWS_ACCESS_KEY_ID="your-access-key-id"/' depoy.sh
+          sed -i 's/^AWS_SECRET_ACCESS_KEY=.*/AWS_SECRET_ACCESS_KEY="your-secret-access-key"/' depoy.sh
           ./depoy.sh       
 
 Outputs:
