@@ -50,8 +50,11 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## this project is also deploy throught Devops best practices 
+
+## This project is deploy with Devops best practices 
+
 1. ec2 --> jenkins --> sonar --> trity --> eks cluster --> argocd --> minitoring tools
    here is **DevOps.md file** for implementation 
-3. fully automated with Infrastructure Provisioning with CloudFormation and scripts 
+
+3. Fully Automated with Infrastructure Provisioning with CloudFormation and scripts 
     here is **xxxx.md** for implementation  
