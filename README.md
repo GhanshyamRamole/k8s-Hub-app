@@ -54,7 +54,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## This project is deploy with Devops best practices 
 
 1. ec2 --> jenkins --> sonar --> trity --> eks cluster --> argocd --> minitoring tools
-   here is Open [](DevOps.md) file for implementation 
+   here is Open [https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md](DevOps.md) file for implementation 
 
 3. Fully Automated with Infrastructure Provisioning with CloudFormation and scripts 
-    here is **xxxx.md** for implementation  
+    here is Open [https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md](xxxx.md) for implementation  
