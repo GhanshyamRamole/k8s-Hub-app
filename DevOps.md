@@ -7,7 +7,7 @@
 
 This project demonstrates deploying a **Kubernetes Hub (k8s-hub)** using a DevOps toolchain and best practices.
 
-### 🔧 Tools Used:
+##🔧 Tools Used:
 
 - **AWS CloudFormation** – Infrastructure as Code for provisioning EC2, VPC, and subnets
 - **Shell Scripts** – Automate AWS CLI, EKSCTL, kubectl installation, and EKS cluster setup
