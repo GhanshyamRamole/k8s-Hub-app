@@ -55,9 +55,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 1. **Classic DevOps Flow**
   - Flow: EC2 → Jenkins → SonarQube → Trivy → EKS → ArgoCD → Monitoring
-here is [Classic_DevOps.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) file for implementation
+  - here is [Classic_DevOps.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) file for implementation
 
 
 2. **IaC-Based Scalable Setup**
   - CloudFormation → VPC/Subnets/EC2 → Shell Scripts → aws-cli/eksctl/kubectl/EKS → k8s-deployment 
-    here is [IaC-Based.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) for implementation  
+  - here is [IaC-Based.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) for implementation  
