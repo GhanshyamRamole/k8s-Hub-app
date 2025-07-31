@@ -53,8 +53,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## This project is deploy with Devops best practices 
 
-1. ec2 --> jenkins --> sonar --> trity --> eks cluster --> argocd --> minitoring tools
-   here is Open [DevOps.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) file for implementation 
+1. **Classic DevOps Flow**
+  - Flow: EC2 → Jenkins → SonarQube → Trivy → EKS → ArgoCD → Monitoring
+    here is [Classic_DevOps.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) file for implementation
 
-3. Fully Automated with Infrastructure Provisioning with CloudFormation and scripts 
-    here is Open [https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md](comming soon) for implementation  
+
+2. **IaC-Based Scalable Setup**
+  - CloudFormation → VPC/Subnets/EC2 → Shell Scripts → aws-cli/eksctl/kubectl/EKS → k8s-deployment 
+    here is [IaC-Based.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) for implementation  
