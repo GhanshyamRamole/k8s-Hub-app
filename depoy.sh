@@ -94,7 +94,7 @@ echo "To delete the cluster later:"
 echo "eksctl delete cluster --name $CLUSTER_NAME --region $REGION"
 
 echo "Deploying website on eks"
-  kubectl apply -f K8s-files
+  kubectl apply -f k8s-Hub-app/K8s-files
  
 echo " now get access to web throught svc"
   kubectl get svc/k8s-app -o wide
