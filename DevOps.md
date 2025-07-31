@@ -1,59 +1,72 @@
+
 # Kubernetes-Hub Deployment Project
-![image](./src/Overview.png)
 
-## Project Overview
-This project demonstrates deploying an k8s-hub using a set of DevOps tools and best practices. The primary tools include:
+![Overview](./src/Overview.png)
 
-- **Cloudformation**: Infrastructure as Code (IaC) tool for ec2, vpc, subnet .
-- **Shell Scripting**: for automating and install aws-cli, eksclt, kubectl, eks creation.
-- **GitHub**: Source code management.
-- **Jenkins**: CI/CD automation tool.
-- **SonarQube**: Code quality analysis and quality gate too
-- **Trivy**: Security vulnerability scanner.
-- **Docker**: Containerization tool to create images.
-- **AWS ECR**: Repository to store Docker images.
-- **AWS EKS**: Container management platform.
-- **ArgoCD**: Continuous deployment tool.
-- **Prometheus & Grafana**: Monitoring and alerting tools.
+## 📘 Project Overview
 
-## Pre-requisites
-1. **AWS Account**: Ensure you have an AWS account. 
+This project demonstrates deploying a **Kubernetes Hub (k8s-hub)** using a DevOps toolchain and best practices.
 
-## Configuration
-### AWS Setup
-1. **IAM User**: Create an IAM user and generate the access and secret keys to configure your machine with AWS.
-2. **Key Pair**: Create a key pair named `key` for accessing your EC2 instances.
+### 🔧 Tools Used:
 
+- **AWS CloudFormation** – Infrastructure as Code for provisioning EC2, VPC, and subnets
+- **Shell Scripts** – Automate AWS CLI, EKSCTL, kubectl installation, and EKS cluster setup
+- **GitHub** – Source code management
+- **Jenkins** – CI/CD orchestration
+- **SonarQube** – Static code analysis and quality gates
+- **Trivy** – Container security scanning
+- **Docker** – Containerization platform
+- **AWS ECR** – Private Docker registry
+- **AWS EKS** – Managed Kubernetes service
+- **ArgoCD** – GitOps continuous deployment
+- **Prometheus & Grafana** – Monitoring and alerting tools
 
-## Configuration
-### AWS Setup
-1. **IAM User**: Create an IAM user and generate the access and secret keys to configure your machine with AWS.
-2. **Key Pair**: Create a key pair named `key` for accessing your EC2 instances.
+---
 
-## Infrastructure Setup Using Cloudformation
-1. **Create Stack**:
-   Click “Create stack” > “With new resources (standard)”.
-   Step : Choose a Template
-           you have two options:
-            - Upload a template file (YAML or JSON format)
-            - Specify an Amazon S3 URL
-   - infrastructure-template.yml
+## ✅ Pre-requisites
+
+1. **AWS Account**
+2. **IAM User** with programmatic access (Access Key + Secret Key)
+3. **Key Pair** named `key` for EC2 instance SSH access
+
+---
+
+## ☁️ AWS Configuration
+
+### 1. IAM Setup
+- Create an IAM user with admin privileges
+- Generate Access Key & Secret Key
+- Configure your machine:
+  ```bash
+  aws configure
+
+##🏗️ Infrastructure Provisioning with CloudFormation
+   - Step 1: Create Stack
+   - Go to AWS Console → CloudFormation → Create Stack
+
+      Choose “With new resources (standard)”
+        Template Options:
+        Upload: infrastructure-template.yml
+        Or provide an Amazon S3 URL
      
-2. **Shell Script**:
+2. **🔧 EKS and Tool Setup via Shell Scripts**:
+**step 1:** Run EKS Setup Script
    - Run the below commands execute eks-setup.sh This will create eks and its prerequisites 
      ```bash
      chmod +x eks-setup.sh
      ./eks-setup.sh
-     ```
-This will install aws-cli, configure aws, eksclt, kubectl and create cluster.
-    
+   
+This will Installs AWS CLI, EKSCTL, kubectl, and provisions the EKS cluster.
+
+**Step 2:** Install Required Tools
+     
      ```bash
      chmod +x install.sh
      ./install.sh
-     ```
+     
 This will install necessary tools like Docker, Jenkins, SonarQube, Trivy.
 
-## SonarQube Configuration
+## 🔍 SonarQube Configuration
 1. **Login Credentials**: Use `admin` for both username and password.
 2. **Generate SonarQube Token**:
    - Create a token under `Administration → Security → Users → Tokens`.
@@ -61,7 +74,7 @@ This will install necessary tools like Docker, Jenkins, SonarQube, Trivy.
    - Create webhook for integration with jenkins for continuous integration of project code analysis 
    - get project keyfor conde analysis
      
-## Jenkins Configuration
+## 🔧 Jenkins Configuration
 1. **Add Jenkins Credentials**:
    - Add the SonarQube token, AWS access key, and secret key in `Manage Jenkins → Credentials → System → Global credentials`.
 2. **Install Required Plugins**:
@@ -80,7 +93,7 @@ This will install necessary tools like Docker, Jenkins, SonarQube, Trivy.
 6. **Push to AWS ECR**: Tags and pushes the Docker image to ECR.
 7. **Image Cleanup**: Deletes images from the Jenkins server to save space.
 
-### Running Jenkins Pipeline
+### 🚀 Jenkins Pipeline Overview
 Create and run the build pipeline in Jenkins. The pipeline will build, analyze, and push the project Docker image to ECR.
 Create a Jenkins pipeline by adding the following script:
 
