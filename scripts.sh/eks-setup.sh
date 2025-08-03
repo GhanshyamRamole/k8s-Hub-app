@@ -3,9 +3,9 @@
 
 set -e
 
-CLUSTER_NAME="dev"
-REGION="us-east-1"
-NODE_GROUP_NAME="dev-node"
+read -p "Enter your cluster name: " CLUSTER_NAME
+read -p "Enter your region: " REGION
+read -p "Enter node-group name: " NODE_GROUP_NAME
 
 echo "Setting up EKS cluster: $CLUSTER_NAME in $REGION"
 
@@ -29,18 +29,10 @@ echo "setting aws-cli"
     echo "✅ AWS CLI is already installed."
   fi
 
-AWS_ACCESS_KEY_ID="your-access-key-id"
-AWS_SECRET_ACCESS_KEY="your-secret-access-key"
-AWS_REGION="us-east-1"  
-AWS_OUTPUT_FORMAT="json"
-
   echo "Checking AWS CLI configuration..."
   if ! aws sts get-caller-identity &>/dev/null; then
     echo "🔧 AWS CLI is not configured. Launching interactive setup..."
-    aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-    aws configure set region $AWS_REGION
-    aws configure set output $AWS_OUTPUT_FORMAT
+    aws configure
   else
     echo "✅ AWS CLI is already configured."
   fi
