@@ -37,9 +37,10 @@ This project demonstrates deploying a **Kubernetes Hub (k8s-hub)** using a DevOp
 - Create an IAM user with admin privileges
 - Generate Access Key & Secret Key
 - Configure your machine:
+
   ```bash
   aws configure
-
+  ```
 ---
 
 ##🏗️ Infrastructure Provisioning with CloudFormation
