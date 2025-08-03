@@ -50,14 +50,37 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+# 🚀 Kubernetes Hub - DevOps Implementation Guide
 
-## This project is deploy with Devops best practices 
+![DevOps Pipeline](./public/devops-overview.png)
 
-1. **Classic DevOps Flow**
-  - Flow: EC2 → Jenkins → SonarQube → Trivy → EKS → ArgoCD → Monitoring
-  - here is [Classic_DevOps.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) file for implementation
+> Complete guide for deploying Kubernetes Hub using two comprehensive DevOps approaches: Classic CI/CD Pipeline and Infrastructure as Code (IaC).
 
+---
 
-2. **IaC-Based Scalable Setup**
-  - CloudFormation → VPC/Subnets/EC2 → Shell Scripts → aws-cli/eksctl/kubectl/EKS → k8s-deployment 
-  - here is [IaC-Based.md](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md) for implementation  
+## 📋 Table of Contents
+
+1. [Project Overview](#-project-overview)
+2. [Prerequisites](#-prerequisites)
+3. [Classic DevOps Implementation](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md)
+4. [Infrastructure as Code Implementation](#-infrastructure-as-code-implementation)
+5. [Monitoring & Observability](#-monitoring--observability)
+6. [Cleanup & Maintenance](#-cleanup--maintenance)
+
+---
+
+## 🌐 Project Overview
+
+This project demonstrates deploying **Kubernetes Hub** using enterprise-grade DevOps practices with two distinct approaches:
+
+### 🔄 Classic DevOps Pipeline
+```
+GitHub → Jenkins → SonarQube → Trivy → Docker → ECR → EKS → ArgoCD → Monitoring
+```
+
+### 🏗️ Infrastructure as Code (IaC)
+```
+CloudFormation → VPC/Subnets/EC2 → Shell Scripts → AWS CLI/eksctl/kubectl → EKS → K8s Deployment
+```
+
+---
