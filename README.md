@@ -64,12 +64,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📋 Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Prerequisites](#-prerequisites)
-3. [Classic DevOps Implementation](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md)
-4. [Infrastructure as Code Implementation](#-infrastructure-as-code-implementation)
-5. [Monitoring & Observability](#-monitoring--observability)
-6. [Cleanup & Maintenance](#-cleanup--maintenance)
+1. [Classic CI/CD Pipeline](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md)
+2. [Infrastructure as Code (IaC)](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/IaC-deployment.md)
+
 
 ---
 
