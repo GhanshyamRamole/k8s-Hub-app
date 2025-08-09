@@ -1,3 +1,23 @@
+
+
+# Kubernetes-Hub Infrastructure as Code (IaC)
+
+![Overview](./src/Overview.png)
+
+## 📘 Project Overview
+
+This project demonstrates deploying a **Kubernetes Hub (k8s-hub)** using a IaC and  shell script best practices.
+
+## 🔧 Tools Used:
+
+- **GitHub** – Source code management
+- **AWS EKS** – Managed Kubernetes service
+- **Docker** – Containerization platform
+- **AWS CloudFormation** – Infrastructure as Code for provisioning EC2, VPC, and subnets
+- **Shell Scripts** – Automate AWS CLI, EKSCTL, kubectl installation, and EKS cluster setup
+  
+---
+
 ## 🏗️ Infrastructure as Code Implementation
 
 ### Phase 1: CloudFormation Infrastructure
