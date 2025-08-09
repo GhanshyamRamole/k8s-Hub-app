@@ -1,6 +1,6 @@
 
 
-# Kubernetes-Hub Infrastructure as Code (IaC)
+# Kubernetes-Hub Deployment using Infrastructure as Code (IaC)
 
 ![Overview](./src/Overview.png)
 
