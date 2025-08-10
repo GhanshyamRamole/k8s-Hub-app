@@ -1,6 +1,6 @@
 # Kubernetes Hub
 
-![Kubernetes Hub](./public/cover.png)
+![Kubernetes Hub](./public/app.png)
 
 A comprehensive web platform for Kubernetes learners and professionals to explore all types of Kubernetes installation methods. 
 
