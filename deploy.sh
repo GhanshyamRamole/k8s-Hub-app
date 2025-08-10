@@ -78,7 +78,7 @@ eksctl create cluster \
     --nodes 2 \
     --nodes-min 1 \
     --nodes-max 4 \
-    --managedi
+    --managed
 
 # Wait for EKS control plane
 echo "Waiting for EKS cluster to become ACTIVE..."
