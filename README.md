@@ -64,7 +64,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📋 Table of Contents
 
-1. [Classic CI/CD Pipeline](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/DevOps.md)
+1. [Classic CI/CD Pipeline](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/Classic-DevOps.md)
 2. [Infrastructure as Code (IaC)](https://github.com/GhanshyamRamole/k8s-Hub-app/blob/main/IaC-deployment.md)
 
 
