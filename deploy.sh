@@ -107,10 +107,9 @@ echo "Deploying website on eks"
  
 echo " now get access to web throught svc"
 
-until kubectl get svc/k8s-app -o wide 2>/dev/null | tee ExternalIP.txt | grep -q "Ready"; do
-   echo "Getting External IP..."
-   sleep 15
-done
+kubectl get svc 
+
+kubectl get svc/k8s-app -o wide > ExternalIP.txt
 
 
   echo "Copy External IP and past in sarch-bar ExternalIP:3000"
