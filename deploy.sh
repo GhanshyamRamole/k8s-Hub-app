@@ -78,27 +78,40 @@ eksctl create cluster \
     --nodes 2 \
     --nodes-min 1 \
     --nodes-max 4 \
-    --managed
+    --managedi
+
+# Wait for EKS control plane
+echo "Waiting for EKS cluster to become ACTIVE..."
+aws eks wait cluster-active --name $CLUSTER_NAME --region $REGION
 
 echo "EKS cluster created successfully!"
 echo "Updating kubeconfig..."
 aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
 
 echo "Testing cluster connection..."
-kubectl get nodes
+
+until kubectl get nodes 2>/dev/null | grep -q "Ready"; do
+  echo "Waiting for nodes to be ready..."
+  sleep 20
+done
+
 
 echo ""
 echo "🎉 EKS cluster is ready!"
 echo ""
-echo "To delete the cluster later:"
-echo "eksctl delete cluster --name $CLUSTER_NAME --region $REGION"
+#echo "To delete the cluster later:"
+#echo "eksctl delete cluster --name $CLUSTER_NAME --region $REGION"
 
 echo "Deploying website on eks"
   kubectl apply -f k8s-Hub-app/K8s-files
  
 echo " now get access to web throught svc"
-  kubectl get svc/k8s-app -o wide > ExternalIP.txt
-  
+
+until kubectl get svc/k8s-app -o wide 2>/dev/null | tee ExternalIP.txt | grep -q "Ready"; do
+   echo "Getting External IP..."
+   sleep 15
+done
+
 
   echo "Copy External IP and past in sarch-bar ExternalIP:3000"
 
