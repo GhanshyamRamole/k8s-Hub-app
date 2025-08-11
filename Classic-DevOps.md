@@ -1,7 +1,7 @@
 
 # Kubernetes-Hub Deployment Project
 
-![Overview](./src/Overview.png)
+![Overview](./public/project-architecture.png)
 
 ## 📘 Project Overview
 
