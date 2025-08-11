@@ -9,9 +9,8 @@ This project demonstrates deploying a **Kubernetes Hub (k8s-hub)** using a DevOp
 
 ## 🔧 Tools Used:
 
-- **AWS CloudFormation** – Infrastructure as Code for provisioning EC2, VPC, and subnets
-- **Shell Scripts** – Automate AWS CLI, EKSCTL, kubectl installation, and EKS cluster setup
 - **GitHub** – Source code management
+- **Shell Scripts** – Automate AWS CLI, EKSCTL, kubectl installation, and EKS cluster setup
 - **Jenkins** – CI/CD orchestration
 - **SonarQube** – Static code analysis and quality gates
 - **Trivy** – Container security scanning
