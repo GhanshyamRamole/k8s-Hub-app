@@ -2,7 +2,7 @@
 
 # Kubernetes-Hub Deployment using Infrastructure as Code (IaC)
 
-![Overview](./src/Overview.png)
+![Overview](./public/Cloudformation.png)
 
 ## 📘 Project Overview
 
