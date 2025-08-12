@@ -3,11 +3,11 @@ pipeline {
     
     parameters {
         string(name: 'ECR_REPO_NAME', defaultValue: 'k8s-hub', description: 'Enter repository name')
-        string(name: 'AWS_ACCOUNT_ID', defaultValue: '123456789012', description: 'Enter AWS Account ID') // Added missing quote
+        string(name: 'AWS_ACCOUNT_ID', defaultValue: '123456789012', description: 'Enter AWS Account ID') 
     }
     
     tools {
-        nodejs 'NodeJS'
+        nodejs 'nodejs'
     }
     
     environment {
@@ -15,44 +15,39 @@ pipeline {
     }
     
     stages {
-        stage('1. Git Checkout') {
+        stage('Git Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/GhanshyamRamole/k8s-Hub-app.git'
             }
         }
         
-        stage('2. SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv ('sonar-server') {
                     sh """
                     $SCANNER_HOME/bin/sonar-scanner \
-                    -Dsonar.projectName= \
-                    -Dsonar.projectKey=
+                    -Dsonar.projectName= k8s-hub\
+                    -Dsonar.projectKey= k8s-hub
                     """
                 }
             }
         }
         
-        stage('3. Quality Gate') {
+        stage('Quality Gate') {
             steps {
                 waitForQualityGate abortPipeline: false, 
                 credentialsId: 'sonar-token'
             }
         }
         
-        stage('4. Install npm') {
-            steps {
-                sh "npm install"
-            }
-        }
         
-        stage('5. Trivy Scan') {
+        stage('Trivy Scan') {
             steps {
                 sh "trivy fs . > trivy.txt"
             }
         }
         
-        stage('6. Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                  dir('./Application') { 
                 sh "docker build -t ${params.ECR_REPO_NAME} ."
@@ -60,7 +55,7 @@ pipeline {
             }
         }
         
-        stage('7. Create ECR repo') {
+        stage('Create ECR repo') {
             steps {
                 withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), 
                                  string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
@@ -74,7 +69,7 @@ pipeline {
             }
         }
         
-        stage('8. Login to ECR & tag image') {
+        stage('Login to ECR & tag image') {
             steps {
                 withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), 
                                  string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
@@ -87,7 +82,7 @@ pipeline {
             }
         }
         
-        stage('9. Push image to ECR') {
+        stage('Push image to ECR') {
             steps {
                 withCredentials([string(credentialsId: 'access-key', variable: 'AWS_ACCESS_KEY'), 
                                  string(credentialsId: 'secret-key', variable: 'AWS_SECRET_KEY')]) {
@@ -99,7 +94,7 @@ pipeline {
             }
         }
         
-        stage('10. Cleanup Images') {
+        stage('Cleanup Images') {
             steps {
                 sh """
                 docker rmi ${params.AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/${params.ECR_REPO_NAME}:${BUILD_NUMBER}
