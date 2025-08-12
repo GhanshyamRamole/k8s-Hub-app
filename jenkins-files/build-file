@@ -26,8 +26,8 @@ pipeline {
                 withSonarQubeEnv ('sonar-server') {
                     sh """
                     $SCANNER_HOME/bin/sonar-scanner \
-                    -Dsonar.projectName= k8s-hub\
-                    -Dsonar.projectKey= k8s-hub
+                    -Dsonar.projectName=k8s-hub\
+                    -Dsonar.projectKey=k8s-hub
                     """
                 }
             }
