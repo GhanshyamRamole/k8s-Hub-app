@@ -54,7 +54,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # 🚀 Kubernetes Hub - DevOps Implementation Guide 
 
-![DevOps Pipeline](./public/devops-overview.png)
 
 > Complete guide for deploying Kubernetes Hub using two comprehensive DevOps approaches:
 1. Classic CI/CD Pipeline and
